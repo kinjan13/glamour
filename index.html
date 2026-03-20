@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glamour Studio | Premium Beauty & Hair Care in Ghatkopar</title>
+    <meta name="description" content="Experience luxury beauty care at Glamour Studio. Premium haircuts, bridal makeup, spa treatments in Ghatkopar East, Mumbai.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --gold-dark: #B8941F;
+            --black: #0A0A0A;
+            --dark-grey: #1A1A1A;
+            --light-grey: #F5F5F5;
+            --white: #FFFFFF;
+            --text-grey: #666666;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            cursor: pointer;
+        }
+
+        .logo h1 {
+            font-size: 1.75rem;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo p {
+            font-size: 0.75rem;
+            color: var(--white);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--black);
+            padding: 0.75rem 1.75rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: var(--gold);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 2rem 100px;
+            background: linear-gradient(135deg, var(--black) 0%, var(--dark-grey) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="%23D4AF37" opacity="0.1"/></svg>') repeat;
+            opacity: 0.1;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--gold);
+            display: block;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--light-grey);
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-tagline {
+            font-size: 1rem;
+            color: var(--text-grey);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--black);
+            padding: 1.1rem 2.5rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            padding: 1.1rem 2.5rem;
+            border: 2px solid var(--gold);
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+            border: 3px solid var(--gold);
+        }
+
+        .badge {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .badge-text {
+            font-size: 0.875rem;
+            color: var(--black);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--black);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 2rem;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.875rem;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--text-grey);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-grey);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            border: 3px solid var(--gold);
+        }
+
+        .about-content h2 {
+            font-size: 2.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content .highlight {
+            color: var(--gold);
+        }
+
+        .about-content p {
+            font-size: 1.125rem;
+            color: var(--text-grey);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-grey);
+            font-weight: 600;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+            border: 2px solid transparent;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.25);
+            border-color: var(--gold);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            filter: grayscale(1);
+            transition: filter 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            filter: grayscale(0);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .service-card p {
+            color: var(--text-grey);
+            line-height: 1.7;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .why-choose .section-header h2,
+        .why-choose .section-header p {
+            color: var(--white);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: var(--dark-grey);
+            border-radius: 15px;
+            transition: all 0.4s;
+            border: 2px solid transparent;
+        }
+
+        .why-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .why-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .why-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .why-card p {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: var(--light-grey);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s;
+            border: 3px solid transparent;
+            text-align: center;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, var(--dark-grey) 0%, var(--black) 100%);
+            color: var(--white);
+        }
+
+        .pricing-badge {
+            background: var(--gold);
+            color: var(--black);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card.featured h3 {
+            color: var(--gold);
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            margin: 1.5rem 0;
+        }
+
+        .pricing-duration {
+            font-size: 0.875rem;
+            color: var(--text-grey);
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 0.95rem;
+        }
+
+        .pricing-card.featured .pricing-features li {
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 300px;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.4s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--gold);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            color: white;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-label {
+            background: var(--gold);
+            color: var(--black);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--light-grey);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+            border-left: 4px solid var(--gold);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.25);
+        }
+
+        .stars {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-grey);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--black);
+            font-size: 1.25rem;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+            color: var(--black);
+        }
+
+        .author-info p {
+            font-size: 0.875rem;
+            color: var(--text-grey);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .contact .section-header h2,
+        .contact .section-header p {
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-card {
+            background: var(--dark-grey);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            border-color: var(--gold);
+        }
+
+        .contact-icon {
+            color: var(--gold);
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .contact-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            color: var(--gold);
+        }
+
+        .contact-card p,
+        .contact-card a {
+            color: var(--light-grey);
+            text-decoration: none;
+            line-height: 1.7;
+        }
+
+        .contact-card a:hover {
+            color: var(--gold);
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+            height: 100%;
+            min-height: 450px;
+            border: 3px solid var(--gold);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-grey);
+            color: var(--light-grey);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-col p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--light-grey);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            transition: all 0.3s;
+            text-decoration: none;
+            font-size: 1.25rem;
+            border: 2px solid var(--gold);
+        }
+
+        .social-icon:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Floating Buttons */
+        .floating-btns {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.75rem;
+            text-decoration: none;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+        }
+
+        .call-btn {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: var(--black);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(212, 175, 55, 0.3);
+                padding: 2rem;
+                border-top: 2px solid var(--gold);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-container,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .pricing-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.75rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.25rem;
+            }
+
+            .badge {
+                position: static;
+                margin-top: 1.5rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo" onclick="scrollToSection('hero')">
+                <h1>Glamour Studio</h1>
+                <p>Premium Salon</p>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" onclick="closeMenu()">Home</a></li>
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#services" onclick="closeMenu()">Services</a></li>
+                <li><a href="#pricing" onclick="closeMenu()">Pricing</a></li>
+                <li><a href="#gallery" onclick="closeMenu()">Gallery</a></li>
+                <li><a href="#testimonials" onclick="closeMenu()">Reviews</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+                <li><a href="tel:06289529596" class="nav-cta">Book Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-content fade-in">
+                <h1>Experience <span class="highlight">Luxury Beauty Care</span></h1>
+                <p>Welcome to Glamour Studio</p>
+                <p class="hero-tagline">Where elegance meets expertise. Transform your look with our premium beauty services.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/06289529596?text=Hello! I would like to book an appointment at Glamour Studio." class="btn-primary">Book Appointment</a>
+                    <a href="tel:06289529596" class="btn-secondary">📞 Call Now</a>
+                </div>
+            </div>
+            <div class="hero-image fade-in">
+                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Luxury Salon">
+                <div class="badge">
+                    <p class="badge-text">Serving Since</p>
+                    <p class="badge-number">2010</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=800&q=80" alt="Salon Interior">
+                </div>
+                <div class="about-content fade-in">
+                    <p class="section-label">About Us</p>
+                    <h2>Your <span class="highlight">Beauty Destination</span></h2>
+                    <p>Glamour Studio is Ghatkopar's premier beauty destination, offering world-class hair care, skin treatments, and bridal services. Our team of expert stylists and beauticians are dedicated to bringing out your natural beauty with precision and care.</p>
+                    <p>With years of experience and a passion for perfection, we use only premium products and the latest techniques to ensure you leave our salon looking and feeling absolutely stunning.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <p class="stat-number">15+</p>
+                            <p class="stat-label">Years Experience</p>
+                        </div>
+                        <div class="stat-item">
+                            <p class="stat-number">5000+</p>
+                            <p class="stat-label">Happy Clients</p>
+                        </div>
+                        <div class="stat-item">
+                            <p class="stat-number">20+</p>
+                            <p class="stat-label">Expert Stylists</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-label">Our Services</p>
+                <h2>Luxury Beauty Treatments</h2>
+                <p>Experience our comprehensive range of premium beauty services</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">✂️</div>
+                    <h3>Haircut & Styling</h3>
+                    <p>Expert haircuts and styling for all hair types. From classic cuts to trendy styles, our stylists create looks that perfectly suit your personality.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">💆</div>
+                    <h3>Hair Spa</h3>
+                    <p>Rejuvenate your hair with our luxurious spa treatments. Deep conditioning, scalp massage, and nourishing therapies for healthy, shiny hair.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">✨</div>
+                    <h3>Facial & Skin Care</h3>
+                    <p>Premium facial treatments using the finest products. From deep cleansing to anti-aging, we've got your skin covered.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">👰</div>
+                    <h3>Bridal Makeup</h3>
+                    <p>Look stunning on your special day with our expert bridal makeup and hairstyling. Complete bridal packages available.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">💅</div>
+                    <h3>Manicure & Pedicure</h3>
+                    <p>Pamper your hands and feet with our luxury manicure and pedicure services. Perfect nails, soft skin, beautiful you.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🎨</div>
+                    <h3>Hair Coloring</h3>
+                    <p>Transform your look with professional hair coloring services. From subtle highlights to bold transformations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-choose" class="why-choose">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-label">Why Choose Us</p>
+                <h2>The Glamour Studio Difference</h2>
+                <p>What makes us Ghatkopar's favorite beauty destination</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card fade-in">
+                    <div class="why-icon">👨‍🎨</div>
+                    <h3>Professional Stylists</h3>
+                    <p>Our team of certified and experienced stylists stay updated with the latest trends and techniques.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="why-icon">⭐</div>
+                    <h3>Premium Products</h3>
+                    <p>We use only international brands and professional-grade products for superior results.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="why-icon">🛡️</div>
+                    <h3>Hygienic Environment</h3>
+                    <p>Strict hygiene protocols and sanitized equipment ensure your safety and comfort.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="why-icon">💰</div>
+                    <h3>Affordable Packages</h3>
+                    <p>Premium quality at competitive prices. Special packages and offers available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-label">Pricing</p>
+                <h2>Service Packages</h2>
+                <p>Transparent pricing for premium services</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <h3>Haircut Special</h3>
+                    <div class="pricing-price">₹499</div>
+                    <p class="pricing-duration">Starting from</p>
+                    <ul class="pricing-features">
+                        <li>Consultation</li>
+                        <li>Haircut & Styling</li>
+                        <li>Hair Wash</li>
+                        <li>Blow Dry</li>
+                    </ul>
+                    <a href="https://wa.me/06289529596?text=I want to book Haircut Special package" class="btn-primary">Book Now</a>
+                </div>
+                <div class="pricing-card featured fade-in">
+                    <span class="pricing-badge">Most Popular</span>
+                    <h3>Bridal Package</h3>
+                    <div class="pricing-price">₹12,999</div>
+                    <p class="pricing-duration">Complete Package</p>
+                    <ul class="pricing-features">
+                        <li>Bridal Makeup</li>
+                        <li>Hair Styling</li>
+                        <li>Pre-Bridal Treatments</li>
+                        <li>Draping Service</li>
+                        <li>Trial Session</li>
+                    </ul>
+                    <a href="https://wa.me/06289529596?text=I want to book Bridal Package" class="btn-primary">Book Now</a>
+                </div>
+                <div class="pricing-card fade-in">
+                    <h3>Facial Treatment</h3>
+                    <div class="pricing-price">₹999</div>
+                    <p class="pricing-duration">Starting from</p>
+                    <ul class="pricing-features">
+                        <li>Deep Cleansing</li>
+                        <li>Face Massage</li>
+                        <li>Face Pack</li>
+                        <li>Moisturizing</li>
+                    </ul>
+                    <a href="https://wa.me/06289529596?text=I want to book Facial Treatment package" class="btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-label">Gallery</p>
+                <h2>Our Work Showcase</h2>
+                <p>Before & after transformations from Glamour Studio</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=80" alt="Hair Styling">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Hair Styling</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80" alt="Bridal Makeup">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Bridal Makeup</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=600&q=80" alt="Hair Color">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Hair Coloring</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=600&q=80" alt="Facial Treatment">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Facial Care</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Manicure">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Nail Art</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80" alt="Hair Spa">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Hair Spa</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&q=80" alt="Makeup">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Party Makeup</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&q=80" alt="Salon Interior">
+                    <div class="gallery-overlay">
+                        <span class="gallery-label">Our Salon</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-label">Testimonials</p>
+                <h2>What Our Clients Say</h2>
+                <p>Real reviews from our satisfied customers</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Amazing experience! The bridal makeup was flawless and lasted the entire day. The team is so professional and talented. Highly recommend Glamour Studio for any special occasion!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">P</div>
+                        <div class="author-info">
+                            <h4>Priya Mehta</h4>
+                            <p>Bridal Makeup Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Best salon in Ghatkopar! I've been coming here for years and they never disappoint. The hair spa is absolutely relaxing and my hair feels so healthy and shiny now."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sneha Joshi</h4>
+                            <p>Regular Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The stylists here are true artists! Got my hair colored and styled for a party and received so many compliments. Very hygienic place with premium products. Worth every penny!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-info">
+                            <h4>Riya Sharma</h4>
+                            <p>Hair Coloring Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-label">Contact Us</p>
+                <h2>Visit Our Salon</h2>
+                <p>Book your appointment today and experience luxury</p>
+            </div>
+            <div class="contact-grid">
+                <div>
+                    <div class="contact-card fade-in">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Shubham flora, 203, 2nd floor R.C.Marg, 71, opposite Basant park Police Station, Charai, Mumbai, Maharashtra 400071</p>
+                        </div>
+                    </div>
+                    <div class="contact-card fade-in">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <h3>Phone</h3>
+                            <a href="tel:06289529596">06289529596</a>
+                        </div>
+                    </div>
+                    <div class="contact-card fade-in">
+                        <span class="contact-icon">🕐</span>
+                        <div>
+                            <h3>Opening Hours</h3>
+                            <p>Monday - Sunday: 10:00 AM - 9:00 PM</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/06289529596?text=Hello! I would like to book an appointment at Glamour Studio." class="btn-primary" style="display: block; text-align: center; margin-top: 1.5rem;">Book Appointment via WhatsApp</a>
+                </div>
+                <div class="map-container fade-in">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.5!2d72.9087!3d19.0861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA1JzEwLjAiTiA3MsKwNTQnMzEuMyJF!5e0!3m2!1sen!2sin!4v1234567890"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Glamour Studio</h3>
+                    <p>Premier beauty destination offering world-class hair care, skin treatments, and bridal services since 2010.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" class="social-icon" target="_blank">f</a>
+                        <a href="https://instagram.com" class="social-icon" target="_blank">📷</a>
+                        <a href="https://youtube.com" class="social-icon" target="_blank">▶</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Haircut & Styling</a></li>
+                        <li><a href="#services">Hair Spa</a></li>
+                        <li><a href="#services">Bridal Makeup</a></li>
+                        <li><a href="#services">Facial Care</a></li>
+                        <li><a href="#services">Manicure & Pedicure</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p>📞 <a href="tel:06289529596">06289529596</a></p>
+                    <p>✉️ info@galmourstudio.com</p>
+                    <p>📍 Shubham flora, 203, 2nd floor R.C.Marg, 71, opposite Basant park Police Station, Charai, Mumbai, Maharashtra 400071</p>
+                    <p>🕐 Mon-Sun: 10 AM - 9 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Glamour Studio. All rights reserved. Designed with ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-btns">
+        <a href="https://wa.me/06289529596?text=Hello! I would like to book an appointment at Glamour Studio." class="float-btn whatsapp-btn" aria-label="WhatsApp">💬</a>
+        <a href="tel:06289529596" class="float-btn call-btn" aria-label="Call">📞</a>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.remove('active');
+        }
+
+        // Scroll to section
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 20) {
+                navbar.style.boxShadow = '0 4px 25px rgba(212, 175, 55, 0.5)';
+            } else {
+                navbar.style.boxShadow = '0 2px 20px rgba(212, 175, 55, 0.3)';
+            }
+        });
+
+    </script>
+</body>
+</html>
